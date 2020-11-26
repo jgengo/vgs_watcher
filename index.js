@@ -1,0 +1,9 @@
+
+
+const vgsIsAlive = () => {
+    
+}
+
+const initCheck = () => {
+
+}
