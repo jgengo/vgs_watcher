@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/jgengo/vgs_watcher#readme",
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "eslint": "^7.14.0",
     "nodemon": "^2.0.6"
   },
