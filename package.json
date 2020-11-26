@@ -26,9 +26,10 @@
   },
   "dependencies": {
     "axios": "^0.21.0",
-    "axios-debug-log": "^0.8.2",
-    "chalk": "^4.1.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "mongoose": "^5.10.16",
+    "mongoose-unique-validator": "^2.0.3"
   }
 }

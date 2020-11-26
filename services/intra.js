@@ -54,11 +54,29 @@ const writeHeader = async (params) => {
 	};
 }
 
+const reqAll = async (method, url, params={}) => {
+	const ret = await req(method, url, {...params, per_page: 1})
+	const maxCount = ret.headers['x-total'];
+	const all = [];
+
+	for (let page = 1; page <= Math.ceil(maxCount / 100); page++)
+	{
+		newUrl = url + (url.includes('?') ? '&' : '?') + 'per_page=100&page=' + page
+
+		let data = (await req(method, newUrl, {
+					...params,
+			})).data;
+			all.push(...data)
+	}
+	return all;
+}
+
 const req = async (method, url, params={}) => {
 	await writeHeader(params);
 	params.method = params.method == undefined ? method : params.method;
 	params.timeout = params.timeout == undefined ? TIMEOUT * 1000 : params.timeout;
-	params.url = params.url == undefined ? `${baseUrl}v2/${url}` : params.url;	
+	
+	params.url = params.url == undefined ? `${baseUrl}v2/${url}` : params.url;
 
   let tries = 0;
   
@@ -66,7 +84,9 @@ const req = async (method, url, params={}) => {
 		await new Promise(r => setTimeout(r, 50 * tries++));
     
     try {
-			return await axios(params);
+			const res = await axios(params);
+			console.log(`[intraService] ${res.status} - ${url}`)
+			return res
 		} catch (error) {
 			let resp = error.response;
 			switch (resp.status) {
@@ -88,4 +108,4 @@ const req = async (method, url, params={}) => {
 	}
 }
 
-exports.req = req;
+module.exports = { req, reqAll }

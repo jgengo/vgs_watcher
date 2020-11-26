@@ -1,0 +1,8 @@
+### getrepos - it's not implemented yet I'm using it as a ping to check on startup.
+GET {{vgs_uri}}/getrepos
+X-Secret: {{vgs_secret}}
+
+### addperms
+
+
+### etc.
