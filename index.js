@@ -1,9 +1,4 @@
+const initCheck = require('./utils/initCheck')
 
 
-const vgsIsAlive = () => {
-    
-}
-
-const initCheck = () => {
-
-}
+initCheck.run()
