@@ -18,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/jgengo/vgs_watcher/issues"
   },
-  "homepage": "https://github.com/jgengo/vgs_watcher#readme"
+  "homepage": "https://github.com/jgengo/vgs_watcher#readme",
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
 }
