@@ -16,7 +16,7 @@ const vgsIsAlive = async () => {
 
 const intraIsAlive = async () => {
   try {
-    const res = await intraService.req('GET', 'users/jgengo')
+    await intraService.req('GET', 'users/jgengo')
     logger.info('\tintra api ✔')
   } catch(err) {
     if (err.response)
