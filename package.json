@@ -1,0 +1,22 @@
+{
+  "name": "vgs_watcher",
+  "version": "1.0.0",
+  "description": "vgs_watcher is here to make sure 42 vgs is up-to-date. Time to time, it happens that the intra Sidekiq queue is down that leads to unpleasant manual hotfix while the sidekiq is back. vgs_watcher may be here to monitors this problem and why not fix the issue on-the-go?",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgengo/vgs_watcher.git"
+  },
+  "author": "Jordane G.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgengo/vgs_watcher/issues"
+  },
+  "homepage": "https://github.com/jgengo/vgs_watcher#readme"
+}
