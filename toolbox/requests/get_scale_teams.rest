@@ -1,0 +1,14 @@
+# @name auth
+POST {{baseUrl}}/oauth/token
+Content-type: application/x-www-form-urlencoded
+
+client_id={{uid}}
+&client_secret={{secret}}
+&grant_type=client_credentials
+&scope=public
+
+
+### scale_teams#index
+
+GET {{baseUrl}}/v2/scale_teams
+Authorization: Bearer {{auth.response.body.access_token}}
