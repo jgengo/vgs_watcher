@@ -9,6 +9,7 @@ const init = require('./utils/init')
 
 const server = http.createServer(app)
 
+// TODO each of the following have to wait for the previous to be done, turns each function into promise
 init.check()
 init.populateUser()
 init.populateEvaluation()

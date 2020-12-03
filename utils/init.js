@@ -100,21 +100,30 @@ const populateEvaluation = async () => {
   //   })
   // )
 
-  console.log(`[init] found ${evaluations.length} for your campus`)
+  console.log(`[init] found ${evaluations.length} evaluations for your campus`)
 
   await Promise.all(
     evaluations.map(async (eval) => {
       const e = await Evaluation.findOne({intraId: eval.id})
       
       if (!e) {
+        const user = await User.findOne({intraId: eval.corrector.id})
+        console.log(user)
+
+        duration = new Date(eval.begin_at) - new Date() //seconds bro, just awesome for a setTimeout
+        // const hours = Math.abs(date2-date1) / 36e5
+
         newEval = new Evaluation({
           intraId: eval.id,
           beginAt: eval.begin_at,
-          repo: eval.repo_uuid
-          // corrector: user.login,
+          repo: eval.team.repo_uuid
         })
+
         try {
           await newEval.save()
+          user.evaluations.push(newEval)
+          user.save()
+          console.log(`[init] ${user.login} will have to correct ${eval.correcteds.map( (c) => c.login).join(', ')} with the repo: ${newEval.repo}`)
         } catch(err) {
           console.log(`[init] error while creating evaluation ${eval.id} - ${err}`)
         }

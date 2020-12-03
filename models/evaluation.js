@@ -4,12 +4,11 @@ const uniqueValidator = require('mongoose-unique-validator')
 const evaluationSchema = new mongoose.Schema({
   intraId: { type: Number, required: true }, // st.id
   beginAt: { type: Date, required: true }, //st.begin_at
+  repo: { type: String, required: true },
   corrector: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  }, //corrector{id, login}
-  repo: { type: String, required: true } // st.team.repo_uuid
+    ref: 'User'
+  } //corrector{id, login} // st.team.repo_uuid
 })
 
 evaluationSchema.set('toJSON', {
