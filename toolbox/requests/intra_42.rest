@@ -24,3 +24,21 @@ Authorization: Bearer {{auth.response.body.access_token}}
 
 GET {{baseUrl}}/v2/campus/13/users
 Authorization: Bearer {{auth.response.body.access_token}}
+
+
+### get user jgengo
+
+GET {{baseUrl}}/v2/users/jgengo
+Authorization: Bearer {{auth.response.body.access_token}}
+
+
+###
+
+GET {{baseUrl}}/v2/users?filter[staff?]=false&filter[primary_campus_id]=13&range[updated_at]=2020-12-03T20:42:43.000Z,2020-12-03T20:42:43.757Z
+Authorization: Bearer {{auth.response.body.access_token}}
+
+
+### 
+
+GET {{baseUrl}}/v2/users/morko/user_candidature
+Authorization: Bearer {{auth.response.body.access_token}}

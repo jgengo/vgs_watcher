@@ -11,6 +11,7 @@ const server = http.createServer(app)
 
 init.check()
 init.populateUser()
+init.populateEvaluation()
 
 mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
   .then(() => {
